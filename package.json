@@ -1,15 +1,14 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "name": "lucene-escape-query",
   "description": "Escape a string for a lucene query. Effectively removes all special characters.",
-
   "author": {
     "name": "Joey Baker",
     "email": "joey@byjoeybaker.com",
     "url": "https://byjoeybaker.com"
   },
   "repository": "joeybaker/lucene-escape-query",
-  "license": "Artistic 2.0",
+  "license": "Artistic-2.0",
   "directories": {
     "test": "test"
   },
@@ -46,7 +45,6 @@
       "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
-  "license": "Artistic-2.0",
   "main": "index.js",
   "browser": "index.js",
   "devDependencies": {
