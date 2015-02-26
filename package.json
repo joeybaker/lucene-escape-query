@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "lucene-escape-query",
   "description": "Escape a string for a lucene query. Effectively removes all special characters.",
   "author": {
