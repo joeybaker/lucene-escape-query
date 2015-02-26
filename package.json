@@ -1,0 +1,71 @@
+{
+  "version": "0.0.0",
+  "name": "lucene-escape-query",
+  "description": "Escape a string for a lucene query. Effectively removes all special characters.",
+
+  "author": {
+    "name": "Joey Baker",
+    "email": "joey@byjoeybaker.com",
+    "url": "https://byjoeybaker.com"
+  },
+  "repository": "joeybaker/lucene-escape-query",
+  "license": "Artistic 2.0",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "lucene-escape-query",
+    "lucene",
+    "escaping",
+    "special characters"
+  ],
+  "scripts": {
+    "test-browser": "browserify -t coverify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
+    "test-server": "covert test/*.js | tap-spec",
+    "test": "npm run test-server && npm run test-browser",
+    "tdd": "nodemon -x npm -i node_modules/ -- run test-server",
+    "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
+    "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
+    "jscs": "jscs .",
+    "jshint": "jshint --reporter node_modules/jshint-stylish/stylish.js",
+    "lint": "npm run jshint && npm run jscs",
+    "requireGitClean": "source ./scripts.sh && git_require_clean_work_tree",
+    "nsp": "nsp audit-package",
+    "note2": "--no-verify skips the commit hook",
+    "dmn": "dmn gen -f . && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add .npmignore && git commit --no-verify -m'update npmignore'; fi",
+    "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
+    "gitPull": "git pull --rebase origin master",
+    "gitPush": "git push --follow-tags --no-verify && git push --tags --no-verify",
+    "release": "source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc && npm_release $@"
+  },
+  "config": {
+    "notes": "important to correct the path of npm so that the git hook doesn't error",
+    "ghooks": {
+      "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint",
+      "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run nsp && npm run dmn && npm run doctoc && npm test",
+      "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
+    }
+  },
+  "license": "Artistic-2.0",
+  "main": "index.js",
+  "browser": "index.js",
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "coverify": "^1.0.7",
+    "covert": "^1.0.1",
+    "dmn": "^1.0.5",
+    "doctoc": "^0.7.1",
+    "ghooks": "^0.2.2",
+    "in-publish": "^1.1.1",
+    "jscs": "^1.7.3",
+    "jshint": "^2.5.8",
+    "jshint-stylish": "^1.0.0",
+    "nodemon": "^1.2.1",
+    "nsp": "^0.4.2",
+    "sinon": "^1.12.2",
+    "smokestack": "^3.2.0",
+    "tap-closer": "^1.0.0",
+    "tap-spec": "^2.2.0",
+    "tape": "^3.5.0"
+  }
+}
