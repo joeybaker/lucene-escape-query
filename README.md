@@ -56,7 +56,6 @@ _NOTE: you might need to `sudo ln -s /usr/local/bin/node /usr/bin/node` to ensur
 
 Artistic 2.0 © [Joey Baker](https://byjoeybaker.com)
 
-
 [npm-url]: https://npmjs.org/package/lucene-escape-query
 [npm-image]: https://badge.fury.io/js/lucene-escape-query.svg
 [travis-url]: https://travis-ci.org/joeybaker/lucene-escape-query
