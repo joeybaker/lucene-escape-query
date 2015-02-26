@@ -8,8 +8,12 @@ Escape a string for a lucene query. Effectively removes all special characters.
 
 - [Install](#install)
 - [Usage](#usage)
+- [Methods](#methods)
+  - [escape `(<String> string)`](#escape-string-string)
+- [Tests](#tests)
 - [Developing](#developing)
   - [Requirements](#requirements)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
