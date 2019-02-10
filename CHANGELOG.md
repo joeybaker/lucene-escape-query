@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.2 | 2019-02-11
+Add '/' Character to Escape Characters
+
 ## v1.0.1 | 2015-02-26
 * Okay… this thing actually works now.
 * npmignore a few files

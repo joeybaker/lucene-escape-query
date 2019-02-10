@@ -32,6 +32,7 @@ test('lucene-escape-query#escape', function getTest(t){
   t.equal(fn('?'), '\\?', 'escapes ?')
   t.equal(fn(':'), '\\:', 'escapes :')
   t.equal(fn('\\'), '\\\\', 'escapes \\')
+  t.equal(fn('/'), '\\/', 'escapes \\/')
   t.equal(fn('?:'), '\\?\\:', 'escapes multiple special characters')
 
   t.end()
